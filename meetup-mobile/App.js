@@ -1,21 +1,43 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, View, ActivityIndicator, Text} from 'react-native';
+import Main from './src/modules/Main/components/Main';
+import {fetchMeetups} from './src/modules/Main/api/mainLayoutApi';
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
+	state = {
+		meetups: [],
+		isFetching: true
+	}
+
+	async componentDidMount() {
+		const {meetups} = await fetchMeetups();
+
+		this.setState({meetups, isFetching: false})
+	}
+
+	render() {
+		if (this.state.isFetching) {
+			return (
+				<View style={styles.container}>
+					<ActivityIndicator size='large' />
+				</View>
+			)
+		}
+
+		return (
+			<View style={styles.container}>
+				<Main />
+				{this.state.meetups.map(item => <Text key={item.title}>{item.title}</Text>)}
+			</View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	container: {
+		flex: 1,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
 });
