@@ -1,0 +1,7 @@
+meetup-backend/node_modules
+meetup-mobile/node_modules
+
+meetup-backend/.DS_Store
+meetup-mobile/.DS_Store
+
+.DS_Store

@@ -1,0 +1,15 @@
+{
+    "extends": ["eslint:recommended"],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "plugins": ["eslint-plugin-import"],
+    "rules": {
+		"indent": ["warn", "tab", {"SwitchCase": 1}],
+        "no-tabs": 0
+    },
+    "env": {
+		"node": true
+    }
+}
