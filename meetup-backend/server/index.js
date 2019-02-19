@@ -2,14 +2,14 @@ import express from 'express';
 import {PORT} from './config/appConfig';
 import initDatabaseConfig from './config/dbConfig';
 import initMiddlewares from './middlewares/middlewares';
-import {MeetupRouter} from './models';
+import {MeetupRouter, GroupRouter} from './modules';
 
 const app = express();
 
 initDatabaseConfig();
 initMiddlewares(app);
 
-app.use('/api', [MeetupRouter]);
+app.use('/api', [MeetupRouter, GroupRouter]);
 
 /* eslint-disable no-console */
 app.listen(PORT, error => {
