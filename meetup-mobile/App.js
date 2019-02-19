@@ -3,16 +3,25 @@ import {StyleSheet, View, ActivityIndicator, Text} from 'react-native';
 import Main from './src/modules/Main/components/Main';
 import {fetchMeetups} from './src/modules/Main/api/mainLayoutApi';
 
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+});
+
 export default class App extends React.Component {
 	state = {
 		meetups: [],
-		isFetching: true
+		isFetching: true,
 	}
 
 	async componentDidMount() {
 		const {meetups} = await fetchMeetups();
 
-		this.setState({meetups, isFetching: false})
+		this.setState({meetups, isFetching: false});
 	}
 
 	render() {
@@ -21,7 +30,7 @@ export default class App extends React.Component {
 				<View style={styles.container}>
 					<ActivityIndicator size='large' />
 				</View>
-			)
+			);
 		}
 
 		return (
@@ -32,12 +41,3 @@ export default class App extends React.Component {
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-});

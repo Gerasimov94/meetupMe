@@ -1,0 +1,49 @@
+{
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+			"jsx": true
+        }
+	},
+	"settings": {
+		"version": "latest"
+	},
+	"env": {
+        "browser": true
+    },
+	"extends": "airbnb",
+    "plugins": [
+        "react"
+	],
+	"rules": {
+		"no-tabs": 0,
+		"object-curly-newline": "off",
+		"object-curly-spacing": [2, "never"],
+		"import/prefer-default-export": "off",
+		"func-names": 0,
+		"indent": ["warn", "tab", {"SwitchCase": 1}],
+		"jsx-quotes": ["error", "prefer-single"],
+		"space-before-function-paren": ["error", {
+			"asyncArrow": "always",
+			"anonymous": "never",
+			"named": "never"
+		}],
+		"comma-dangle": ["error", {
+			"arrays": "always-multiline",
+			"objects": "always-multiline",
+			"imports": "always-multiline",
+			"exports": "always-multiline",
+			"functions": "ignore"
+		}],
+		"react/prefer-stateless-function": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/destructuring-assignment": "off",
+		"react/jsx-no-bind": "warn",
+		"react/jsx-indent": ["warn", "tab"],
+		"react/jsx-first-prop-new-line": "warn",
+		"react/jsx-curly-spacing": "warn",
+		"react/jsx-no-undef": ["error", {"allowGlobals": true}]
+    }
+}
