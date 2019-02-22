@@ -12,7 +12,7 @@ initMiddlewares(app);
 app.use('/api', [MeetupRouter, GroupRouter]);
 
 /* eslint-disable no-console */
-app.listen(PORT, error => {
+app.listen(PORT, '0.0.0.0', error => {
 	if (error) console.error('Something going wrong, m8');
 	else console.log(`Server is working on port ${PORT}`)
 });
