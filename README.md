@@ -1,3 +1,4 @@
-# meetupMe is a application for creating meetups and working with them.
-#
-# Based on React-Native, Node, MongoDB.
+# meetupMe
+meetupMe is a application for creating meetups and working with them.
+
+Based on React-Native, Node, MongoDB.
